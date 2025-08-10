@@ -38,8 +38,8 @@ function AddTodo({ todos, setTodos, setShowInput, editId, setEditId }) {
   }
 
   return (
-    <div className="flex justify-center mt-6">
-      <input
+    <div className="flex items-center justify-center mt-6">
+      <textarea
         type="text"
         placeholder="Add a new todo..."
         value={input}
@@ -49,10 +49,10 @@ function AddTodo({ todos, setTodos, setShowInput, editId, setEditId }) {
             handleAddTodo(e);
           }
         }}
-        className="w-2/4 px-4 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="sm:w-2/4 w-[70%] h-13 items-center py-3 px-4 border rounded focus:outline-none focus:ring-2 focus:ring-gray-600 overflow-x-auto"
       />
       <button
-        className="items-center py-4 px-6 ml-2 font-bold text-white border-1 bg-gray-700 rounded-4xl hover:bg-white hover:text-gray-700 cursor-pointer hover:text-[107.9%] transition-all ease-in-out hover:py-[1%]"
+        className="items-center sm:py-4 py-3 px-3 sm:px-6 ml-2 font-bold text-white border-1 bg-gray-700 rounded-4xl hover:bg-white hover:text-gray-700 cursor-pointer hover:text-[107.9%] transition-all ease-in-out hover:py-[1%]"
         onClick={handleAddTodo}
       >
         {editId ? "Update" : "Save"}

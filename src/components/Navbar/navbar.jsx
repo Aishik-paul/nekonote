@@ -1,39 +1,27 @@
 import './Navbar.css'
+import logo from '../../assets/img/logo.png';
+
 
 function Navbar() {
   return (
-    <>
-      <nav className="navbar bg-[#ff9f64] shadow-xl justify-between">
+    <nav className="flex bg-[#ff9f64] shadow-xl justify-between items-center sm:px-10 px-7 py-2">
+      
+      
+        {/* Logo */}
+        <div className="sm:w-15 w-12">
+          <img src={logo} alt="LOGO" className="w-full h-full" />
+        </div>
 
-        <div>
-        <ul className="flex gap-10 space-between">
-          <li className='font-bold'>Home</li>
-          <li className='font-bold'>Contact</li>
-          <li className='font-bold'>Help Us</li>
+        {/* Nav Links */}
+        <ul className="flex gap-5 sm:gap-10">
+          <li className="font-bold cursor-pointer">Home</li>
+          <li className="font-bold cursor-pointer">Contact</li>
+          <li className="font-bold cursor-pointer">Help Us</li>
         </ul>
-        </div>
-
-        <div className="search w-1/4">
-          <label className="input px-4 rounded-4xl bg-transparent border-2 border-[#0f0f0f] text-[#0f0f0f] hover:bg-[#fff9f2] focus-within:bg-[#fff9f2] focus-within:border-[#ff9f64]">
-            <svg className="h-[1em] opacity100 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <g
-                strokeLinejoin="round"
-                strokeLinecap="round"
-                strokeWidth="2.5"
-                fill="none"
-                stroke="currentColor"
-              >
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.3-4.3"></path>
-              </g>
-            </svg>
-            <input className="bg-transparent w-full" type="search" required placeholder="Search" />
-          </label>
-        </div>
-      </nav>
-
-    </>
+      
+    </nav>
   );
 }
+
 
 export default Navbar;
