@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import NoTodo from '../noTodo/NoTodo';
 import AddTodo from '../addTodo/AddTodo';
 
-function Todo() {
+function Todo({ name }) {
   const [input, setInput] = useState('');
   const [editId, setEditId] = useState(null);
   const [showInput, setShowInput] = useState(false);
@@ -50,11 +50,13 @@ function Todo() {
 
   return (
     <div className="min-h-screen bg-[#fff9f2] py-5">
-      <h1 className="my-15 relative text-3xl font-bold text-center">ADD YOUR TASKS</h1>
+
+
 
       {/* If no todos exist */}
       {todos.length === 0 ? (
         <div className="top-0 relative">
+                <h1 className='text-6xl font-bold text-center my-10'>Hellow! {name}</h1>
           <NoTodo />
           <div className="flex justify-center mt-6">
             {!showInput ? (
@@ -82,6 +84,7 @@ function Todo() {
       ) : (
         <>
           {/* Always show AddTodo when there are todos */}
+                <h1 className="my-15 relative text-3xl font-bold text-center">ADD YOUR TASKS</h1>
           <AddTodo
             todos={todos}
             setTodos={setTodos}
