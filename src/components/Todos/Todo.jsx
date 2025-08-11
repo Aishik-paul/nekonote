@@ -37,6 +37,15 @@ function Todo() {
     setShowInput(true);
   }
 
+  //delete all todos
+  function handleDeleteAll() {
+    setTodos([]);
+    setShowInput(false);
+    setInput('');
+    setEditId(null);
+    localStorage.removeItem("todos");
+  }
+
   const completedTasks = todos.filter(todo => todo.completed);
 
   return (
@@ -89,23 +98,41 @@ function Todo() {
           </div>
 
           {/* Show Completed Toggle */}
-          <div className="flex sm:w-3/5 w-full bg items-center mt-6 sm:ml-80 sm:my-10 mx-[30%]">
-            <input
-              className='appearance-none w-5 h-5 border border-gray-400 rounded-full
-             checked:bg-amber-600 checked:border-gray-500 cursor-pointer'
-              type="checkbox"
-              checked={showCompleted}
-              onChange={() => setShowCompleted(!showCompleted)}
-            />
-            <span
-              className="mx-2">
+          <div className="flex  justify-center mt-6 sm:my-10">
+            <div className="flex justify-between items-center sm:w-3/5 w-full px-4 py-2 rounded">
+              {/* Left: Checkbox + Label */}
+              <div className="flex items-center">
+                <input
+                  id="show-completed"
+                  type="checkbox"
+                  className="appearance-none w-5 h-5 border border-gray-400 rounded-full
+                   checked:bg-amber-600 checked:border-gray-500 cursor-pointer"
+                  checked={showCompleted}
+                  onChange={() => setShowCompleted(!showCompleted)}
+                />
+                <label
+                  htmlFor="show-completed"
+                  className="ml-2 cursor-pointer select-none"
+                >
+                  Show Completed
+                </label>
+              </div>
 
-              Show Completed
-            </span>
+              {/* Right: Delete button */}
+              <button
+                type="button"
+                className="bg-red-500 text-white px-3 py-2 rounded-3xl hover:bg-red-700 cursor-pointer transition-colors duration-300"
+
+                onClick={handleDeleteAll}
+              >
+                Delete
+              </button>
+            </div>
           </div>
 
+
           {/* Todo List */}
-          <div className="sm:w-3/5 sm:mt-20 mt-10 sm:mx-auto mx-5">
+          <div className="sm:w-3/5 sm:mt-10 mt-10 border-1 border-gray-300 rounded-3xl py-10 sm:mx-auto mx-5">
             <ul className="px-4 w-full">
               {todos
                 .filter(todo => showCompleted || !todo.completed)
@@ -142,6 +169,11 @@ function Todo() {
                       <span
                         className={`mx-6 sm:mx-3 sm:min-w-[36em] min-w-32 break-words whitespace-normal ${todo.completed ? "line-through" : ""
                           }`}
+
+                        onClick={() => {
+                          todo.completed = !todo.completed;
+                          setTodos([...todos]);
+                        }}
                       >
                         {todo.text}
                       </span>
@@ -167,8 +199,8 @@ function Todo() {
           </div>
 
           {/* Completed Todos */}
-          <div className="w-3/4 mt-40 mx-auto bg-green-100 p-4 rounded">
-            <h2 className="text-xl font-semibold mb-2">Completed Todos</h2>
+          <div className="w-3/4 mt-40 glass mx-auto bg-gray-100 p-4 rounded">
+            <h2 className="text-3xl font-bold text-center mb-2">Completed Todos</h2>
             {completedTasks.length === 0 ? (
               <p className="text-gray-500">No completed tasks yet.</p>
             ) : (
