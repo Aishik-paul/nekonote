@@ -1,4 +1,5 @@
 import { useState } from "react";
+import nameCat from "../../assets/gif/name.gif";
 
 function CatchName({ setName }) {
   const [inputValue, setInputValue] = useState("");
@@ -11,6 +12,11 @@ function CatchName({ setName }) {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-[#fff9f2] ">
+      <img 
+      src={nameCat} 
+      alt=""
+      className="w-[60%] mb-10 sm:mb-0 sm:w-[300px] sm:h-[300px] absolute top-20"
+       />
       <h1 className="text-5xl font-extrabold text-center my-10">
         Let me catch your name!!
       </h1>
