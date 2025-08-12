@@ -15,7 +15,7 @@ function CatchName({ setName }) {
       <img 
       src={nameCat} 
       alt=""
-      className="w-[60%] mb-10 sm:mb-0 sm:w-[300px] sm:h-[300px] absolute top-20"
+      className="w-[60%] mb-10 sm:mb-0 sm:w-[300px] sm:h-[300px] absolute top-20 sm:top-10 md:top-0"
        />
       <h1 className="text-5xl font-extrabold text-center my-10">
         Let me catch your name!!
