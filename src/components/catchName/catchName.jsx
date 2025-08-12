@@ -10,19 +10,19 @@ function CatchName({ setName }) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-[#fff9f2]">
+    <div className="flex flex-col items-center justify-center h-screen bg-[#fff9f2] ">
       <h1 className="text-5xl font-extrabold text-center my-10">
         Let me catch your name!!
       </h1>
-      <div className="flex items-center gap-4 w-full max-w-md">
+      <div className="flex items-center gap-4 w-full max-w-md px-10 sm:px-0">
         <input
           type="text"
           value={inputValue}
-                  onKeyDown={(e) => {
-          if (e.key === "Enter") {
-            handleButtonClick(e);
-          }
-        }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleButtonClick(e);
+            }
+          }}
           onChange={(e) => setInputValue(e.target.value)}
           className="border-2 border-gray-300 rounded-lg p-2 w-full max-w-md"
           placeholder="Enter your name"
