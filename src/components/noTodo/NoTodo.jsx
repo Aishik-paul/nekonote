@@ -22,7 +22,7 @@ function NoTodo() {
         <img
           src={startSvg} // <-- Different image for first visit
           alt="Start Todo"
-          className="sm:w-[30%] w-[66%] mx-auto mb-6 sm:left-138 top-55 left-19 sm:top-29 absolute"
+          className="sm:w-[30%] w-[66%] mx-auto mb-6 sm:left-126 top-40 left-19 sm:top-31 absolute"
         />
           <h1 className="sm:text-5xl text-3xl font-bold">
             Start with a todo
